@@ -1,51 +1,69 @@
 <!-- @format -->
 
-# Project Git Account Manager (CLI) in Java
+# 🚀 Git Account Manager CLI (Java)
 
-## What is this project?
+## 📖 Project Overview
 
-- I built a Command Line Interface (CLI) Tool that allows users to manage their GitHub account without needing GitHub Desktop or browser.
+This project is a **Command Line Interface (CLI) Tool** that allows users to **manage their GitHub account** directly from the terminal — without needing GitHub Desktop or a browser.
 
-- The Cli will help users:
+With this tool, users can perform common GitHub operations easily and securely from their terminal.
+
+---
+
+## ✨ Features
 
 | Feature                                       | Description                                                          |
 | --------------------------------------------- | -------------------------------------------------------------------- |
-| Login to GitHub (using Personal Access Token) | Authenticate securely                                                |
+| Login to GitHub (using Personal Access Token) | Authenticate securely using GitHub Tokens                            |
 | View Profile Details                          | Fetch and display user profile info (name, bio, followers, repos...) |
-| List Repositories                             | List all repositories in the user's account                          |
-| Delete a Repository                           | Delete a repo directly                                               |
-| Update Profile Bio                            | Delete a repo directly                                               |
-| Update Profile Bio                            | Update user's GitHub bio                                             |
-| Logout                                        | Clear token/session                                                  |
+| List Repositories                             | List all repositories in the user's GitHub account                   |
+| Create a Repository                           | Create a new repository                                              |
+| Delete a Repository                           | Delete an existing repository                                        |
+| Update Profile Bio                            | Update the user's GitHub bio                                         |
+| Logout                                        | Clear stored token/session                                           |
 | Unit Testing                                  | Write tests for important services                                   |
-| Clean Project Structure                       | Follow good package and class design                                 |
-| JSON Parsing                                  | Parse GitHub API responses (with minimal libraries)                  |
+| Clean Project Structure                       | Follow clean package and class design                                |
+| JSON Parsing                                  | Parse GitHub API responses with minimal libraries                    |
 
-## Technologies I Will Use
+---
 
-1. Java 24
-2. HTTP Requests (using HttpURLConnection)
-3. JSON Parsing (using minimal libraries like org.json or manual parsing)
-4. JUnit 5 for Unit Testing
-5. Maven (for dependency management)
-6. Good OOP Design (Interfaces, Classes, Packages)
+## 🛠️ Technologies Used
 
-## Basic Structure / Packages
+- **Java 24**
+- **HTTP Requests** (using `HttpURLConnection`)
+- **JSON Parsing** (manual parsing or with minimal libraries like `org.json`)
+- **JUnit 5** (for Unit Testing)
+- **Maven** (for dependency management)
+- **Good OOP Design** (Interfaces, Classes, Packages)
 
-| Package            | Description                                |
-| ------------------ | ------------------------------------------ |
-| com.gitcli.cli     | For main CLI classes                       |
-| com.gitcli.service | For all GitHub API logic                   |
-| com.gitcli.model   | For creating Java objects from GitHub data |
-| com.gitcli.utils   | For helpers (HTTP helpers, parsers...)     |
-| com.gitcli.test    | For unit testing                           |
+---
 
-## Flow of the Application
+## 📁 Project Structure
 
-1. User opens CLI
-2. User Logs in (provides GitHub Personal Access Token)
-3. CLI shows options (View profile, List repos, Create repo, etc.)
-4. User selects an action
-5. CLI interacts with GitHub API
-6. Response shown to user
-7. Repeat until user logs out
+| Package              | Description                               |
+| -------------------- | ----------------------------------------- |
+| `com.gitcli.cli`     | Main CLI classes                          |
+| `com.gitcli.service` | GitHub API communication and logic        |
+| `com.gitcli.model`   | Java models for GitHub data               |
+| `com.gitcli.utils`   | Helper classes (HTTP helpers, parsers...) |
+| `com.gitcli.test`    | Unit testing classes                      |
+
+---
+
+## 🔄 Application Flow
+
+1. User opens the CLI application.
+2. User logs in using a GitHub Personal Access Token (PAT).
+3. CLI displays available actions (View profile, List repos, Create repo, Delete repo, Update bio, etc.)
+4. User selects an action.
+5. CLI sends requests to GitHub API and displays results.
+6. User continues or logs out.
+
+---
+
+## 🖥️ Setup & Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/manage-git.git
+   ```

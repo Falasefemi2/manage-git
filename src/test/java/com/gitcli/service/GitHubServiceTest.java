@@ -16,6 +16,9 @@ public class GitHubServiceTest {
 
     @Test
     void testDeleteRepository() {
+        GitHubService service = new GitHubService();
+        service.deleteRepository("Testuser", "Test Repo");
+        assertNull(service.getToken(), "Token should be null when deleteting repo");
 
     }
 
@@ -59,6 +62,9 @@ public class GitHubServiceTest {
 
     @Test
     void testUpdateBio() {
+        GitHubService service = new GitHubService();
+        service.updateBio("New Bio");
+        assertNull(service.getToken(), "Token should be null when updating bio");
 
     }
 }

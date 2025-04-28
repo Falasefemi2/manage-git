@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class GitHubService {
+
     private String token;
 
     public boolean login(String token) {
