@@ -6,7 +6,7 @@ import com.gitcli.service.GitHubService;
 
 public class Main {
 
-    private static GitHubService gitHubService = new GitHubService();
+    private static final GitHubService gitHubService = new GitHubService();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -93,7 +93,8 @@ public class Main {
                     exit = true;
                     System.out.println("Exiting. Goodbye!");
                 }
-                default -> System.out.println("Invalid choice. Please try again.");
+                default ->
+                    System.out.println("Invalid choice. Please try again.");
             }
         }
         scanner.close();

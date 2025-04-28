@@ -6,6 +6,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class GitHubService {
 
     private String token;
@@ -78,14 +81,14 @@ public class GitHubService {
                 scanner.close();
 
                 String jsonResponse = response.toString();
-                // Now manually parse (later we can use libraries like Jackson)
-                String username = extractValue(jsonResponse, "login");
-                String name = extractValue(jsonResponse, "name");
-                String email = extractValue(jsonResponse, "email");
-                String bio = extractValue(jsonResponse, "bio");
-                String publicRepos = extractValue(jsonResponse, "public_repos");
-                String followers = extractValue(jsonResponse, "followers");
-                String following = extractValue(jsonResponse, "following");
+                JSONObject json = new JSONObject(jsonResponse);
+                String username = json.optString("login");
+                String name = json.optString("name");
+                String email = json.optString("email");
+                String bio = json.optString("bio");
+                int publicRepos = json.optInt("public_repos");
+                int followers = json.optInt("followers");
+                int following = json.optInt("following");
 
                 System.out.println("👤 Username: " + username);
                 System.out.println("📛 Name: " + name);
@@ -94,6 +97,7 @@ public class GitHubService {
                 System.out.println("📦 Public Repos: " + publicRepos);
                 System.out.println("👥 Followers: " + followers);
                 System.out.println("➡️ Following: " + following);
+
             } else {
                 System.out.println("Failed to fetch profile info. HTTP Code: " + responseCode);
             }
@@ -154,15 +158,16 @@ public class GitHubService {
 
                 String jsonResponse = response.toString();
 
-                // Split by { } blocks (very simple method for now)
-                String[] repos = jsonResponse.split("\\},\\{");
+                JSONArray repos = new JSONArray(jsonResponse);
 
-                for (String repo : repos) {
-                    String name = extractValue(repo, "name");
-                    String description = extractValue(repo, "description");
-                    String stars = extractValue(repo, "stargazers_count");
-                    String forks = extractValue(repo, "forks_count");
-                    String isPrivate = extractValue(repo, "private");
+                for (int i = 0; i < repos.length(); i++) {
+                    JSONObject repo = repos.getJSONObject(i);
+
+                    String name = repo.optString("name");
+                    String description = repo.optString("description");
+                    int stars = repo.optInt("stargazers_count");
+                    int forks = repo.optInt("forks_count");
+                    boolean isPrivate = repo.optBoolean("private");
 
                     System.out.println("📁 Repo Name: " + name);
                     System.out.println("📝 Description: " + description);
