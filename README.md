@@ -65,5 +65,14 @@ With this tool, users can perform common GitHub operations easily and securely f
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/manage-git.git
+   git clone https://github.com/Falasefemi2/manage-git
    ```
+2. cd manage-git
+3. mvn clean install
+4. mvn exec:java -Dexec.mainClass="com.gitcli.cli.Main"
+
+## Future Improvements
+
+- Allow managing GitHub Issues.
+- Allow creating Gists from CLI.
+- Add OAuth Login (instead of only tokens).
